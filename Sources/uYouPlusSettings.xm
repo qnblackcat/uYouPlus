@@ -9,6 +9,15 @@
 
 #define SWITCH_ITEM2(t, d, k) [sectionItems addObject:[YTSettingsSectionItemClass switchItemWithTitle:t titleDescription:d accessibilityIdentifier:nil switchOn:IS_ENABLED(k) switchBlock:^BOOL (YTSettingsCell *cell, BOOL enabled) {[[NSUserDefaults standardUserDefaults] setBool:enabled forKey:k];SHOW_RELAUNCH_YT_SNACKBAR;return YES;} settingItemId:0]]
 
+NSArray *copyKeys = @[
+/* MAIN     Player Keys */ @"slideToSeek_enabled", @"snapToChapter_enabled", @"pinchToZoom_enabled", @"ytMiniPlayer_enabled", @"hideRemixButton_enabled", @"hideClipButton_enabled", @"hideDownloadButton_enabled", @"stockVolumeHUD_enabled",
+/* MAIN     Button Keys */ @"hideAutoplaySwitch_enabled", @"hideCC_enabled", @"hideHUD_enabled", @"hidePaidPromotionCard_enabled", @"hideChannelWatermark_enabled", @"redProgressBar_enabled", @"hideHoverCards_enabled", @"hideRightPanel_enabled",
+/* MAIN     Shorts Keys */ @"hideBuySuperThanks_enabled", @"hideSubcriptions_enabled",
+/* MAIN       Misc Keys */ @"hideiSponsorBlockButton_enabled", @"disableHints_enabled", @"ytStartupAnimation_enabled", @"hideChipBar_enabled", @"hidePlayNextInQueue_enabled", @"iPhoneLayout_enabled", @"bigYTMiniPlayer_enabled", @"reExplore_enabled", @"flex_enabled",
+/* TWEAK      uYou Keys */ @"showedWelcomeVC", @"hideShortsTab", @"hideCreateTab", @"hideCastButton", @"relatedVideosAtTheEndOfYTVideos", @"removeYouTubeAds", @"backgroundPlayback", @"disableAgeRestriction", @"iPadLayout", @"noSuggestedVideoAtEnd", @"shortsProgressBar", @"hideShortsCells", @"removeShortsCell", @"startupPage",
+/* TWEAK     YTUHD Keys */ @"EnableVP9", @"AllVP9"
+];
+
 static const NSInteger uYouPlusSection = 500;
 
 @interface YTSettingsSectionItemManager (uYouPlus)
@@ -71,6 +80,57 @@ extern NSBundle *uYouPlusBundle();
         }
     ];
     [sectionItems addObject:bug];
+
+    YTSettingsSectionItem *copySettings = [%c(YTSettingsSectionItem)
+        itemWithTitle:LOC(@"COPY_SETTINGS")
+        titleDescription:LOC(@"COPY_SETTINGS_DESC")
+        accessibilityIdentifier:nil
+        detailTextBlock:nil
+        selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+                NSMutableString *settingsString = [NSMutableString string];
+                for (NSString *key in copyKeys) {
+                    if ([userDefaults objectForKey:key]) {
+                        NSString *value = [userDefaults objectForKey:key];
+                        [settingsString appendFormat:@"%@: %@\n", key, value];
+                    }
+                }       
+                [[UIPasteboard generalPasteboard] setString:settingsString];
+                // Show a confirmation message or perform some other action here
+                return YES;
+            }
+    ];
+    [sectionItems addObject:copySettings];
+
+    YTSettingsSectionItem *pasteSettings = [%c(YTSettingsSectionItem)
+        itemWithTitle:LOC(@"PASTE_SETTINGS")
+        titleDescription:LOC(@"PASTE_SETTINGS_DESC")
+        accessibilityIdentifier:nil
+        detailTextBlock:nil
+        selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
+                UIAlertController *confirmPasteAlert = [UIAlertController alertControllerWithTitle:LOC(@"PASTE_SETTINGS_ALERT") message:nil preferredStyle:UIAlertControllerStyleAlert];
+                [confirmPasteAlert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+                [confirmPasteAlert addAction:[UIAlertAction actionWithTitle:@"Confirm" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    NSString *settingsString = [[UIPasteboard generalPasteboard] string];
+                    if (settingsString.length > 0) {
+                        NSArray *lines = [settingsString componentsSeparatedByString:@"\n"];
+                        for (NSString *line in lines) {
+                            NSArray *components = [line componentsSeparatedByString:@": "];
+                            if (components.count == 2) {
+                                NSString *key = components[0];
+                                NSString *value = components[1];
+                                [[NSUserDefaults standardUserDefaults] setObject:value forKey:key];
+                            }
+                        }
+                        [settingsViewController reloadData];
+                        SHOW_RELAUNCH_YT_SNACKBAR;
+                    }
+                }]];
+                [settingsViewController presentViewController:confirmPasteAlert animated:YES completion:nil];
+                return YES;
+            }
+    ];
+    [sectionItems addObject:pasteSettings];
 
     YTSettingsSectionItem *exitYT = [%c(YTSettingsSectionItem)
         itemWithTitle:LOC(@"QUIT_YOUTUBE")

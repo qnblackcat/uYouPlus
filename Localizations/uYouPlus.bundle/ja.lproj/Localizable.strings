@@ -7,6 +7,12 @@
 "REPORT_AN_ISSUE" = "不具合を報告";
 "ADD_TITLE" = "タイトルをここに追加...";
 
+"COPY_SETTINGS" = "設定をコピー";
+"COPY_SETTINGS_DESC" = "現在のすべての設定をクリップボードにコピーします";
+"PASTE_SETTINGS" = "設定を貼り付け";
+"PASTE_SETTINGS_DESC" = "クリップボードから設定を貼り付けて適用します";
+"PASTE_SETTINGS_ALERT" = "Are you sure you want to paste the settings?";
+
 "QUIT_YOUTUBE" = "YouTubeを終了";
 
 "RESTART_YOUTUBE" = "変更を適用するためにYouTubeを再起動";

@@ -7,6 +7,12 @@
 "REPORT_AN_ISSUE" = "Báo lỗi";
 "ADD_TITLE" = "Thêm tiêu đề lỗi ở đây...";
 
+"COPY_SETTINGS" = "Copy Settings";
+"COPY_SETTINGS_DESC" = "Copy all current settings to the clipboard";
+"PASTE_SETTINGS" = "Paste Settings";
+"PASTE_SETTINGS_DESC" = "Paste settings from clipboard and apply";
+"PASTE_SETTINGS_ALERT" = "Are you sure you want to paste the settings?";
+
 "QUIT_YOUTUBE" = "Đóng YouTube";
 
 "RESTART_YOUTUBE" = "Khởi động lại YouTube để áp dụng các thay đổi";

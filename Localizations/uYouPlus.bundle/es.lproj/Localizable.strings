@@ -7,6 +7,12 @@
 "REPORT_AN_ISSUE" = "Informar de un problema";
 "ADD_TITLE" = "Añada aquí su título...";
 
+"COPY_SETTINGS" = "Copy Settings";
+"COPY_SETTINGS_DESC" = "Copy all current settings to the clipboard";
+"PASTE_SETTINGS" = "Paste Settings";
+"PASTE_SETTINGS_DESC" = "Paste settings from clipboard and apply";
+"PASTE_SETTINGS_ALERT" = "Are you sure you want to paste the settings?";
+
 "QUIT_YOUTUBE" = "Salir de Youtube";
 
 "RESTART_YOUTUBE" = "Reinicia YouTube para aplicar los cambios";

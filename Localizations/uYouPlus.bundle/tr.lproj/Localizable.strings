@@ -7,6 +7,12 @@
 "REPORT_AN_ISSUE" = "Report an issue";
 "ADD_TITLE" = "Add your title here...";
 
+"COPY_SETTINGS" = "Ayarları Kopyala";
+"COPY_SETTINGS_DESC" = "Tüm mevcut ayarları panoya kopyala";
+"PASTE_SETTINGS" = "Ayarları Yapıştır";
+"PASTE_SETTINGS_DESC" = "Panodaki ayarları yapıştır ve uygula";
+"PASTE_SETTINGS_ALERT" = "Are you sure you want to paste the settings?";
+
 "QUIT_YOUTUBE" = "Quit YouTube";
 
 "RESTART_YOUTUBE" = "Restart YouTube to apply changes";
