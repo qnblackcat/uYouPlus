@@ -1,21 +1,27 @@
 // About
-"ABOUT" = "About";
+"ABOUT" = "Sobre";
 
-"VERSION" = "Versão do uYouPlus: %@";
+"VERSION" = "Versão";
 "VERSION_CHECK" = "Toque para verificar se há atualização!";
 
-"REPORT_AN_ISSUE" = "Report an issue";
-"ADD_TITLE" = "Add your title here...";
+"REPORT_AN_ISSUE" = "Informar um problema";
+"ADD_TITLE" = "Adicione seu título aqui...";
 
-"QUIT_YOUTUBE" = "Quit YouTube";
+"COPY_SETTINGS" = "Copy settings";
+"COPY_SETTINGS_DESC" = "Copy all current settings to the clipboard";
+"PASTE_SETTINGS" = "Paste settings";
+"PASTE_SETTINGS_DESC" = "Paste settings from clipboard and apply";
+"PASTE_SETTINGS_ALERT" = "Are you sure you want to paste the settings?";
 
-"RESTART_YOUTUBE" = "Restart YouTube to apply changes";
+"QUIT_YOUTUBE" = "Sair do YouTube";
+
+"RESTART_YOUTUBE" = "Reinicie o YouTube para aplicar as alterações";
 
 // App appearance
-"APP_THEME" = "🎨 App appearance";
+"APP_THEME" = "🎨 Aparência do aplicativo";
 "THEME_OPTIONS" = "Opções de Temas";
 
-"DARK_THEME" = "Dark theme";
+"DARK_THEME" = "Tema Escuro";
 
 "DEFAULT_THEME" = "Padrão";
 "DEFAULT_THEME_DESC" = "Tema escuro padrão do YouTube. A reinicialização do app é necessária.";
@@ -33,8 +39,8 @@
 // Video player options
 "VIDEO_PLAYER_OPTIONS" = "⏯️ Opções do Reprodutor de Vídeo";
 
-"SLIDE_TO_SEEK" = "Enable Slide to seek";
-"SLIDE_TO_SEEK_DESC" = "Bring back the Slide to seek gesture.";
+"SLIDE_TO_SEEK" = "Ativar Deslizar para buscar";
+"SLIDE_TO_SEEK_DESC" = "Traz de volta o gesto Deslizar para buscar.";
 
 "DISABLE_DOUBLE_TAP_TO_SEEK" = "Desativar toque duplo para buscar";
 "DISABLE_DOUBLE_TAP_TO_SEEK_DESC" = "";
@@ -48,13 +54,13 @@
 "YT_MINIPLAYER" = "Ative o Miniplayer para todos os vídeos do YouTube";
 "YT_MINIPLAYER_DESC" = "Vídeos infantis, por exemplo.";
 
-"HIDE_REMIX_BUTTON" = "Hides Remix button";
+"HIDE_REMIX_BUTTON" = "Ocultar o botão Remix";
 "HIDE_REMIX_BUTTON_DESC" = "";
 
-"HIDE_CLIP_BUTTON" = "Hide Clip button";
+"HIDE_CLIP_BUTTON" = "Ocultar o botão Clipe";
 "HIDE_CLIP_BUTTON_DESC" = "";
 
-"HIDE_DOWNLOAD_BUTTON" = "Hide Download button";
+"HIDE_DOWNLOAD_BUTTON" = "Ocultar o botão de Download";
 "HIDE_DOWNLOAD_BUTTON_DESC" = "";
 
 "STOCK_VOLUME_HUD" = "Usar o HUD de volume padrão do iOS";
@@ -109,7 +115,7 @@
 "MISCELLANEOUS" = "🔎 Diversos";
 
 "HIDE_UYOU" = "Hide uYou tab";
-"HIDE_ISPONSORBLOCK" = "Hide iSponsorBlock button";
+"HIDE_ISPONSORBLOCK" = "Ocultar o botão iSponsorBlock";
 
 "CAST_CONFIRM" = "Alerta de confirmação antes de transmitir (YTCastConfirm)";
 "CAST_CONFIRM_DESC" = "Mostra um alerta de confirmação antes da transmissão para evitar o sequestro acidental da TV.";
@@ -127,7 +133,7 @@
 "HIDE_CHIP_BAR" = "Ocultar a Barra superior";
 "HIDE_CHIP_BAR_DESC" = "Oculta a Barra superior nos Feeds iniciais (Tendências, Música, Jogos...) e Feeds de inscrições (Todos os vídeos, Continuar assistindo...). A reinicialização do app é necessária.";
 
-"HIDE_PLAY_NEXT_IN_QUEUE" = "Hide \"Play next in queue\"";
+"HIDE_PLAY_NEXT_IN_QUEUE" = "Ocultar \"Adicionar como próximo na fila\"";
 "HIDE_PLAY_NEXT_IN_QUEUE_DESC" = "";
 
 "IPHONE_LAYOUT" = "Layout do iPhone";
@@ -144,3 +150,6 @@
 
 "FIX_GOOGLE_SIGNIN" = "Corrigir o login do Google (somente para usuários da TrollStore)";
 "FIX_GOOGLE_SIGNIN_DESC" = "Ative esta opção somente quando você não conseguir fazer login com sua conta do Google e o aplicativo foi instalado via TrollStore. Se você conseguir fazer login normalmente, mantenha-o desativado. A reinicialização do app é necessária.";
+
+"GOOGLE_SIGNIN_FIX" = "Google sign-in fix";
+"GOOGLE_SIGNIN_FIX_DESC" = "";

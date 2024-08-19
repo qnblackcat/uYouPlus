@@ -39,7 +39,7 @@ static void replaceTab(YTIGuideResponse *response) {
 %end
 
 %ctor {
-    if (IS_ENABLED(@"reExplore_enabled")) {
+    if (IS_ENABLED(kReExplore)) {
         %init(YTReExplore);
     }
 }

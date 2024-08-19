@@ -6,19 +6,9 @@
 %hook NSBundle
 - (NSDictionary *)infoDictionary {
     NSMutableDictionary *info = %orig.mutableCopy;
-    NSString *altBundleIdentifier = info[@"ALTBundleIdentifier"];
-    if (altBundleIdentifier) info[@"CFBundleIdentifier"] = altBundleIdentifier;
+    if ([self isEqual:NSBundle.mainBundle] && [[NSUserDefaults standardUserDefaults] boolForKey:kGoogleSigninFix])
+        info[@"CFBundleIdentifier"] = @"com.google.ios.youtube";
     return info;
-}
-%end
-
-// Workaround for MiRO92/uYou-for-YouTube#12, qnblackcat/uYouPlus#263
-%hook YTDataUtils
-+ (NSMutableDictionary *)spamSignalsDictionary {
-    return nil;
-}
-+ (NSMutableDictionary *)spamSignalsDictionaryWithoutIDFA {
-    return nil;
 }
 %end
 
@@ -215,4 +205,7 @@ static void refreshUYouAppearance() {
 
     // Disable uYou's playback speed controls (prevent crash on video playback https://github.com/therealFoxster/uYouPlus/issues/2#issuecomment-1894912963)
     // [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"showPlaybackRate"];
+    
+    // Disable uYou's adblock
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"removeYouTubeAds"];
 }

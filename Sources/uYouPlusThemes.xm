@@ -285,7 +285,7 @@ UIColor* raisedColor = [UIColor colorWithRed:0.035 green:0.035 blue:0.035 alpha:
     if (IS_OLD_DARK_THEME_SELECTED) {
         %init(gOldDarkTheme)
     }
-    if (IS_ENABLED(@"oledKeyBoard_enabled")) {
+    if (IS_ENABLED(kOLEDKeyboard)) {
         %init(gOLEDKB);
     }
 }

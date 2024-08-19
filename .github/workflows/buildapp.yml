@@ -33,7 +33,7 @@ on:
         type: boolean
       upload_artifact:
         description: "Upload Artifact"
-        default: true
+        default: false
         required: false
         type: boolean
 
@@ -44,7 +44,7 @@ concurrency:
 jobs:
   build:
     name: Build uYouPlus
-    runs-on: macos-latest
+    runs-on: macos-12
     permissions:
       contents: write
 
@@ -55,7 +55,15 @@ jobs:
           path: main
           submodules: recursive
 
+      - name: Caching brew dependencies
+        id: brew_cache
+        uses: tecolicom/actions-use-homebrew-tools@v1.2
+        with:
+          tools: ldid dpkg make
+          cache: yes
+
       - name: Install Dependencies
+        if: steps.brew_cache.outputs.cache-hit != 'true'
         run: brew install ldid dpkg make
 
       - name: Set PATH environment variable
@@ -69,7 +77,7 @@ jobs:
           path: theos
           submodules: recursive
       
-      - name: Caching
+      - name: Caching SDK
         id: SDK
         uses: actions/cache@v4.0.0
         env:
@@ -121,6 +129,7 @@ jobs:
       - name: Fix compiling & Build Package
         id: build_package
         run: |
+          mkdir -p theos/lib/iphone/rootless
           cd ${{ github.workspace }}/main
           sed -i '' "27s#.*#BUNDLE_ID = ${{ env.BUNDLE_ID }}#g" Makefile
           sed -i '' "26s#.*#DISPLAY_NAME = ${{ env.APP_NAME }}#g" Makefile          

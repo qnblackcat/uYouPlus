@@ -25,7 +25,7 @@
 %end
 
 %ctor {
-    if (IS_ENABLED(@"bigYTMiniPlayer_enabled") && (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPad)) {
+    if (IS_ENABLED(kBigYTMiniPlayer) && (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPad)) {
         %init(BigYTMiniPlayer);
     }
 }

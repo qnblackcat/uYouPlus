@@ -7,6 +7,12 @@
 "REPORT_AN_ISSUE" = "Informar de un problema";
 "ADD_TITLE" = "Añada aquí su título...";
 
+"COPY_SETTINGS" = "Copy settings";
+"COPY_SETTINGS_DESC" = "Copy all current settings to the clipboard";
+"PASTE_SETTINGS" = "Paste settings";
+"PASTE_SETTINGS_DESC" = "Paste settings from clipboard and apply";
+"PASTE_SETTINGS_ALERT" = "Are you sure you want to paste the settings?";
+
 "QUIT_YOUTUBE" = "Salir de Youtube";
 
 "RESTART_YOUTUBE" = "Reinicia YouTube para aplicar los cambios";
@@ -144,3 +150,6 @@
 
 "FIX_GOOGLE_SIGNIN" = "Reparar el inicio de sesión de Google (solo para usuarios de TrollStore)";
 "FIX_GOOGLE_SIGNIN_DESC" = "Active esta opción solo cuando no pueda iniciar sesión con su cuenta de Google y la aplicación se instaló a través de TrollStore. Si puede iniciar sesión normalmente, manténgala desactivada. Es necesario reiniciar la aplicación.";
+
+"GOOGLE_SIGNIN_FIX" = "Google sign-in fix";
+"GOOGLE_SIGNIN_FIX_DESC" = "";

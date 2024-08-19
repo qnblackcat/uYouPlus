@@ -32,6 +32,13 @@ body:
 
 - type: textarea
   attributes:
+    label: IPA source
+    description: _How did you get the YouTube IPA?_
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
     label: Describe the issue
     description: _Please attach videos or screenshots if possible_
   validations:

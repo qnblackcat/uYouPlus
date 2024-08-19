@@ -7,6 +7,12 @@
 "REPORT_AN_ISSUE" = "不具合を報告";
 "ADD_TITLE" = "タイトルをここに追加...";
 
+"COPY_SETTINGS" = "設定をコピー";
+"COPY_SETTINGS_DESC" = "現在のすべての設定をクリップボードにコピーします";
+"PASTE_SETTINGS" = "設定を貼り付け";
+"PASTE_SETTINGS_DESC" = "クリップボードから設定を貼り付けて適用します";
+"PASTE_SETTINGS_ALERT" = "設定をペーストしてもよろしいですか？";
+
 "QUIT_YOUTUBE" = "YouTubeを終了";
 
 "RESTART_YOUTUBE" = "変更を適用するためにYouTubeを再起動";
@@ -144,3 +150,6 @@
 
 "FIX_GOOGLE_SIGNIN" = "Googleのサインインを修正 (TrollStoreユーザーのみ)";
 "FIX_GOOGLE_SIGNIN_DESC" = "Googleアカウントでサインインできない場合で、アプリがTrollStore経由でインストールされている場合のみ、このオプションをオンにしてください。通常通りサインインできる場合はオフのままにしてください。アプリの再起動が必要です。";
+
+"GOOGLE_SIGNIN_FIX" = "Google sign-in fix";
+"GOOGLE_SIGNIN_FIX_DESC" = "";

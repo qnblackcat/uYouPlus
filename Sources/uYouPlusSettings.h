@@ -6,6 +6,9 @@
 #import <YouTubeHeader/YTSettingsPickerViewController.h>
 #import "uYouPlus.h"
 
+NSString *UYOUPLUS_RELEASES_URL = @"https://github.com/qnblackcat/uYouPlus/releases";
+NSString *UYOUPLUS_NEW_ISSUE_URL = @"https://github.com/qnblackcat/uYouPlus/issues/new?assignees=&labels=bug&projects=&template=bug.yaml&title=[v%@] %@";
+
 // For displaying snackbars
 @interface YTHUDMessage : NSObject
 + (id)messageWithText:(id)text;
