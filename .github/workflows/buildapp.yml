@@ -126,6 +126,12 @@ jobs:
           THEOS: ${{ github.workspace }}/theos
           YOUTUBE_URL: ${{ inputs.decrypted_youtube_url }}
 
+      - name: Download and Move .deb File
+        run: |
+          wget "https://repo.miro92.com/debs/com.miro.uyou_3.0.3_iphoneos-arm.deb"
+          mkdir -p Tweaks/uYou
+          mv com.miro.uyou_3.0.3_iphoneos-arm.deb Tweaks/uYou/
+
       - name: Fix compiling & Build Package
         id: build_package
         run: |
