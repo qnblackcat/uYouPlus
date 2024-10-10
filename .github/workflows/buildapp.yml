@@ -44,13 +44,13 @@ concurrency:
 jobs:
   build:
     name: Build uYouPlus
-    runs-on: macos-12
+    runs-on: macos-13
     permissions:
       contents: write
 
     steps:
       - name: Checkout Main
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4.2.1
         with:
           path: main
           submodules: recursive
@@ -70,7 +70,7 @@ jobs:
         run: echo "$(brew --prefix make)/libexec/gnubin" >> $GITHUB_PATH 
 
       - name: Setup Theos
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4.2.1
         with:
           repository: theos/theos
           ref: master
@@ -79,7 +79,7 @@ jobs:
       
       - name: Caching SDK
         id: SDK
-        uses: actions/cache@v4.0.0
+        uses: actions/cache@v4.1.1
         env:
           cache-name: iOS-16.5-SDK
         with:
@@ -97,7 +97,7 @@ jobs:
           THEOS: ${{ github.workspace }}/theos
 
       - name: Setup Theos Jailed
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4.2.1
         with:
           repository: qnblackcat/theos-jailed
           ref: master
@@ -146,7 +146,7 @@ jobs:
 
       - name: Upload Artifact
         if: ${{ inputs.upload_artifact }}
-        uses: actions/upload-artifact@v4.3.0
+        uses: actions/upload-artifact@v4.4.3
         env:
           UYOU_VERSION: ${{ inputs.uyou_version }}
           YOUTUBE_VERSION: ${{ steps.prepare_youtube.outputs.youtube_version }}
