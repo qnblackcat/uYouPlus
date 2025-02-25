@@ -28,7 +28,7 @@
 	branch = main
 [submodule "Extensions"]
 	path = Extensions
-	url = https://github.com/CokePokes/YoutubeExtensions.git
+	url = https://github.com/CrossiDev-Studio/OpenYoutubeAndShorts
 	branch = main
 [submodule "Tweaks/YTABConfig"]
 	path = Tweaks/YTABConfig
