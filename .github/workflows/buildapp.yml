@@ -70,7 +70,7 @@ jobs:
         run: echo "$(brew --prefix make)/libexec/gnubin" >> $GITHUB_PATH 
 
       - name: Setup Theos
-        uses: actions/checkout@v4.2.1
+        uses: actions/checkout@v4
         with:
           repository: theos/theos
           ref: master
