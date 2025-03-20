@@ -16,7 +16,7 @@ MODULES = jailed
 endif
 
 ifndef YOUTUBE_VERSION
-YOUTUBE_VERSION = 20.08.3
+YOUTUBE_VERSION = 20.11.6
 endif
 ifndef UYOU_VERSION
 UYOU_VERSION = 3.0.4
@@ -63,7 +63,10 @@ before-all::
 		$(PRINT_FORMAT_BLUE) "Downloading uYou"; \
 	fi
 before-all::
-	@if [[ ! -f $(UYOU_DEB) ]]; then \
+	@if [[ ! -f $(UYOU_DEB) && -n $(UYOU_URL) ]]; then \
+		curl -s $(UYOU_URL) -o $(UYOU_DEB); \
+	fi; \
+	if [[ ! -f $(UYOU_DEB) ]]; then \
  		curl -s https://repo.miro92.com/debs/com.miro.uyou_$(UYOU_VERSION)_iphoneos-arm.deb -o $(UYOU_DEB); \
  	fi; \
 	if [[ ! -f $(UYOU_DYLIB) || ! -d $(UYOU_BUNDLE) ]]; then \

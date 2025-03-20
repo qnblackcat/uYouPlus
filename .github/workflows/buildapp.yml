@@ -11,6 +11,11 @@ on:
         default: "3.0.4"
         required: true
         type: string
+      uyou_url:
+        description: "The URL for download uYou"
+        default: "https://something.url/uyou.deb"
+        required: false
+        type: string
       decrypted_youtube_url:
         description: "Direct URL to the decrypted YouTube ipa. The version of YouTube will be detected automatically."
         default: ""
@@ -67,7 +72,7 @@ jobs:
         run: brew install ldid dpkg make
 
       - name: Set PATH environment variable
-        run: echo "$(brew --prefix make)/libexec/gnubin" >> $GITHUB_PATH 
+        run: echo "$(brew --prefix make)/libexec/gnubin" >> $GITHUB_PATH
 
       - name: Setup Theos
         uses: actions/checkout@v4
@@ -76,7 +81,7 @@ jobs:
           ref: master
           path: theos
           submodules: recursive
-      
+
       - name: Caching SDK
         id: SDK
         uses: actions/cache@v4
@@ -85,7 +90,7 @@ jobs:
         with:
           path: theos/sdks/
           key: ${{ env.cache-name }}
-      
+
       - name: Download iOS 16.5 SDK
         if: steps.SDK.outputs.cache-hit != 'true'
         run: |
@@ -132,7 +137,7 @@ jobs:
           mkdir -p theos/lib/iphone/rootless
           cd ${{ github.workspace }}/main
           sed -i '' "27s#.*#BUNDLE_ID = ${{ env.BUNDLE_ID }}#g" Makefile
-          sed -i '' "26s#.*#DISPLAY_NAME = ${{ env.APP_NAME }}#g" Makefile          
+          sed -i '' "26s#.*#DISPLAY_NAME = ${{ env.APP_NAME }}#g" Makefile
           make package THEOS_PACKAGE_SCHEME=rootless IPA=Payload/YouTube.app FINALPACKAGE=1
           echo "package=$(ls -t packages | head -n1)" >>$GITHUB_OUTPUT
           echo -e "==> \033[1mSHASUM256: $(shasum -a 256 packages/*.ipa | cut -f1 -d' ')\033[0m"
@@ -141,6 +146,7 @@ jobs:
         env:
           THEOS: ${{ github.workspace }}/theos
           UYOU_VERSION: ${{ inputs.uyou_version }}
+          UYOU_URL: ${{ inputs.uyou_url }}
           BUNDLE_ID: ${{ inputs.bundle_id }}
           APP_NAME: ${{ inputs.app_name }}
 
