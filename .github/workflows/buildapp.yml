@@ -17,7 +17,7 @@ on:
         required: false
         type: string
       decrypted_youtube_url:
-        description: "Direct URL to the decrypted YouTube ipa. The version of YouTube will be detected automatically."
+        description: "https://drive.google.com/file/d/1G_36xSFcLBWtJQMMP7lAzs7iJ_Hwd_3N/view?usp=drivesdk"
         default: ""
         required: true
         type: string
